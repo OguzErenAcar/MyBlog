@@ -1,3 +1,19 @@
+npx create-react-app site 
+#site dosyasına gir 
+cd site
+npm install alertifyjs
+npm install react-router-dom
+npm install redux 
+npm install react-redux 
+npm install redux-thunk
+npm install reactstrap
+npm install bootstrap
+npm install json-server
+npm install @reduxjs/toolkit
+npm install react-hook-form
+npm install axios 
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
