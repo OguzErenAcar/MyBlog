@@ -1,36 +1,53 @@
-import { get } from "react-hook-form";
-import { useSelector } from "react-redux";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import * as projectListAction from "../Redux/Actions/projectListAction";
-
+import { useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
 import React, { Component } from "react";
+import { ListGroup, ListGroupItem } from "reactstrap";
+import { getProjectsList,setSelected } from "../Redux/Slices/projectListSlice";//api istegi
 
-class ProjectsList extends Component {
-    
-   componentDidMount() { 
-    this.props.actions.getProjects()
-  } 
-  render() {
-    const list = this.props.projectList
-    console.log(list)//neden initalState döndü ????
-    return <div>{
-      //this.props.actions.getProjects().then(list=>(list.payload.map(project=>project.toString())))
-    }</div>;
+
+const ProjectsList = () => {
+  //action cagirmak icin dispatch
+  const dispatch = useDispatch();
+
+  //api den gelen list state i 
+  const [list, setList] = useState([]);
+
+  //compdidmount
+  useEffect(() => {
+    dispatch(getProjectsList()).then((response) => {
+      setList(response.payload);
+    });
+  },[]);
+
+  const selectProject=(id)=>{
+      dispatch(setSelected(list.filter(item =>item.id===id)))
   }
-}
- 
-function mapStateToProps(state){
-    return{
-      projectList:state.projectList.value
-    }
-}
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: {
-      getProjects: bindActionCreators(projectListAction.getProjects, dispatch),
-    },
-  };
-}
-export default connect(mapStateToProps,mapDispatchToProps)(ProjectsList);
+  return (
+    <div>
+      LİST
+      <ListGroup>
+        {list.map((project,index)=><ListGroupItem 
+        onClick={()=>selectProject(project.id)} key ={index}>
+          {project.name}</ListGroupItem>)}
+      </ListGroup>
+    </div>
+  );
+};
+
+export default ProjectsList;
+
+// function mapStateToProps(state){
+//     return{
+//       projectList:state.projectList.value
+//     }
+// }
+
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     actions: {
+//       getProjects: bindActionCreators(projectListAction.getProjects, dispatch),
+//     },
+//   };
+// }
+// export default connect(mapStateToProps,mapDispatchToProps)(ProjectsList);

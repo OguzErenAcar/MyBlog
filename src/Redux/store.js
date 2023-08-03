@@ -1,9 +1,13 @@
  import { configureStore } from '@reduxjs/toolkit'
-import projectList from "./Reducers/projectListReducer"
+import projectList from "./Slices/projectListSlice"
+import projectDetails from "./Slices/projectDetailsSlice"
+import thunk from 'redux-thunk'
 
 
 export default configureStore({
 	reducer: {
-        projectList:projectList
+        projectList:projectList,
+		projectDetails:projectDetails
 	},
+	middleware: [thunk]
 })

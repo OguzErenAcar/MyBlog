@@ -1,6 +1,6 @@
 import Navibar from "./Components/Navibar";
 import { routes } from "./Routes";
-import Footer from "./Components/Footer"
+import Footer from "./Components/footer"
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <Router>
       <div className="App">
       <Navibar></Navibar>       
-       <div class="container-fluid align-items-center bg-success d-flex justify-content-center" 
+       <div className="container-fluid align-items-center bg-success d-flex justify-content-center" 
        style={{height:800}} >
        <Routes>
           {routes.map((route, index) => (
