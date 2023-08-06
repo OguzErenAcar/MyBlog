@@ -7,22 +7,29 @@ import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
 function Navibar(args) {
   return (
     <div>
-      <Navbar className="  bg-dark " style={{height:80}}>
-        <div className="row  w-100">
-          <div className="col-3">
-            <NavbarBrand href="/">MySite</NavbarBrand>
+      <Navbar class="navibar " style={{height:180}}>
+        <div class="h-100 w-100 align-items-center">
+        <div class="row   ">
+          <div class="col-3">
+            {/* <NavbarBrand href="/">MySite</NavbarBrand> */}
+            <div class="text-white d-flex ">
+            <img src="/images/logo.png" class="logo" alt=""></img>
+             <h5 class="my-auto ms-2 custom-font"> Oğuz Eren</h5>
+            </div>
           </div>
-          <div className="col-6">
-            <Nav className="m-auto  w-100 d-flex justify-content-between ">
-              {routes.map((route) => (
-                <NavItem className="">
-                  <NavLink>
-                    <Link to={route.path}>{route.name}</Link>
+          <div class="col-5 ms-auto">
+            <Nav class="d-flex justify-content-between align-items-center h-100 w-100" >
+              {routes.map((route,index) => (
+                <NavItem key={index}>
+                  <NavLink  href={route.path} class="text-decoration-none text-white  " >
+                   <h5> {route.name}</h5>
+                   {/* <Link to={route.path}>{route.name}</Link> */}
                   </NavLink>
                 </NavItem>
               ))}
-            </Nav>
+            </Nav> 
           </div>
+        </div>
         </div>
       </Navbar>
     </div>

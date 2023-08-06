@@ -37,7 +37,7 @@ const ProjectDetails = () => {
 
   return (
     <div>
-      <h1>{ReadmeContent}</h1>
+      <h5>{ReadmeContent}</h5>
     </div>
   );
 };

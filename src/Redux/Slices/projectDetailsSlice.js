@@ -9,7 +9,7 @@ const initialState = {
 };
 
 const octokit = new Octokit({
-    auth: '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'
+    auth: process.env.TOKEN
   })
   
   const fetchReadme = async (projectName) => {
@@ -53,7 +53,7 @@ const ProjectDetailsSlice = createSlice({
   },
   extraReducers: {
     //eğer api ile initialstate güncellemek istersek 
-    
+
   //   [fetchDetails.pending]: (state) => {
   //     state.loading = true;
   //     state.error = null;

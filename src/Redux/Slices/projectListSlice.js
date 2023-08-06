@@ -15,7 +15,7 @@ export const getProjectsList = createAsyncThunk(
   async () => {
     try {
       const octokit = new Octokit({
-        auth: "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",
+        auth: process.env.TOKEN,
       });
       const result = await octokit.request("GET /users/{username}/repos", {
         username: "OguzErenAcar",
@@ -25,8 +25,8 @@ export const getProjectsList = createAsyncThunk(
       });
       return result.data
     } catch (error) {
-      throw Error(error);
-    }
+      console.log(error)    
+      }
   }
 );
 
