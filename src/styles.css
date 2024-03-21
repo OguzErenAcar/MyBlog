@@ -1,0 +1,208 @@
+@font-face {
+    font-family: 'RobotoMono';
+    src: url('Assets/RobotoMono-VariableFont_wght.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'RobotoRegular';
+    src: url('Assets/Roboto-Regular.ttf') format('truetype');
+  }
+
+  .custom-font{
+    font-family: "RobotoRegular" , Sans-serif;
+  }
+  .cl2{
+    color:#66686c
+  }
+  .project-details{
+    background-color: #66686c;
+  }
+
+body{
+background-color: #23272d;
+}
+.navibar{
+    background-color: #23272d;
+}
+ 
+.logo {
+    height: 10%;
+    width: 10%;
+}
+
+.nav-link{/*element*/
+    color:white;
+    font-family: "RobotoRegular" , Sans-serif;
+}
+.routes{
+    background-color: #23272d;
+}
+.footer{
+    background-color: #23272d;
+}
+.home{ 
+    color:white
+} 
+.home h1{
+    font-family: "RobotoMono" , Sans-serif;
+    font-size: 72px;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1.15em;
+    letter-spacing: -1.5px;
+}
+
+.home h3{ 
+font-size: 16px;
+text-align: start;
+color: #FFFFFF;
+font-family: "RobotoRegular", Sans-serif;
+font-size: 24px;
+font-weight: normal;
+font-style: normal;
+line-height: 1.58em;
+
+}
+
+.home button{  
+    font-size:large;
+    font-weight: bold;
+    background-color: #34ffa9;
+    color: black;
+    border-radius: 0px;
+    width: 220px;
+    height: 72px;
+
+}
+.link-list{
+    color:#66686c
+}
+ 
+
+.pp-images{
+    height: 100%;
+    width: 100%;
+
+}
+
+#home-col-top{
+    height: 80%;
+
+}
+
+#home-col-bottom{
+    height: 20%;
+
+}
+
+.box{
+    height: 100px;
+    width: 100px;
+  }
+  .box1{
+    background-color: aqua;
+  }
+  .box2{
+    background-color: blue;
+  }
+  .box3{
+    background-color: red;
+  }
+
+#aboutme{
+    font-size: 24px;
+    margin-top: 0px;
+    margin-bottom: 60px;
+     display: flex;
+     justify-content: space-between;
+     
+}   
+ .left-col{
+     flex:4;
+ }
+ .right-col{
+    flex: 5;
+ }
+#aboutme .aboutmeContent{
+  font-size:medium;
+}
+
+#aboutme #content1{
+    margin-right: 150px; 
+  }
+#aboutme #content2{
+    margin-right: 25px; 
+  }
+
+#PlaceOfWork{
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.pof_item{
+  margin-bottom: 20px;
+}
+.pof_item_line1{ 
+  display: flex;
+  justify-content: space-between;
+  
+}
+.pof_company{  
+}
+
+.pof_position{   
+}
+
+.pof_item_line2{
+display: block ;
+}
+
+.subTitleDiv{
+    margin-top: 70px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+  
+  }
+
+.line{
+    margin-top: 20px;
+    background-color: #34ffa9;
+    height: 5px;
+    border-radius: 1px;
+    width: 725px;
+   
+ }
+ .footer_img{
+     left: 0;
+     position: absolute;
+     width: 100%;
+     color:black;
+     background-image: url("/public/images/footer.png");
+     background-size: cover;
+     background-position: top;
+     height: 500px; 
+ }
+
+.footer_content{
+ display: flex ;
+ align-items: center;
+ width: 100%;
+ height: 100%;
+ margin: 0;
+
+}
+.footer_links{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+.footer_content_div{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 98%;
+}
+ .footer_items{
+  display: inline-block;
+ }

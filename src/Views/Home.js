@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Button } from 'reactstrap';
-
+import AboutMe from '../Components/AboutMe'
+import RecentProjects from "../Components/RecentProjects";
+import PlacesOfWork from "../Components/PlacesOfWork";
 export default class Home extends Component {
 
   
@@ -14,7 +16,7 @@ export default class Home extends Component {
 
     return (
       <div class="home ">
-        <div class="d-flex h-100 bg-danger-subtle align-items-start">
+        <div class="d-flex h-100   align-items-start">
           <div class="w-100 d-flex flex-column h-100 ">
             <div id="home-col-top" class="container-fluid d-flex " >
               <div class="row  w-100 mx-auto  ">
@@ -48,7 +50,11 @@ export default class Home extends Component {
             </div>
           </div>
         </div>
+       <AboutMe></AboutMe>
+       <RecentProjects></RecentProjects>
+       <PlacesOfWork></PlacesOfWork>
       </div>
+      
     );
     /* <div class="home text-bg-light">
 <div class="container-fluid h-100  ">
