@@ -19,17 +19,18 @@ export const routes =[
         auth:false 
     },
     {
-        path:"/Contact",
-        name:"Contact",
-        exact:true,
-        component:Contact,
-        auth:false 
-    },
-    {
         path:"/Projects",
         name:"Projects",
         exact:true,
         component:Projects,
         auth:false 
+    },
+    {
+        path:"/Contact",
+        name:"Contact",
+        exact:true,
+        component:Contact,
+        auth:false 
     }
+ 
 ]

@@ -8,21 +8,10 @@
     src: url('Assets/Roboto-Regular.ttf') format('truetype');
   }
 
-  .custom-font{
-    font-family: "RobotoRegular" , Sans-serif;
-  }
-  .cl2{
-    color:#66686c
-  }
-  .project-details{
-    background-color: #66686c;
-  }
-
+  
 body{
+font-family: "RobotoRegular" , Sans-serif;
 background-color: #23272d;
-}
-.navibar{
-    background-color: #23272d;
 }
  
 .logo {
@@ -32,14 +21,12 @@ background-color: #23272d;
 
 .nav-link{/*element*/
     color:white;
-    font-family: "RobotoRegular" , Sans-serif;
-}
-.routes{
-    background-color: #23272d;
-}
-.footer{
-    background-color: #23272d;
-}
+    cursor: pointer;
+ }
+ .nav-link:hover{
+  color:#34ffa9 ;
+ }
+ 
 .home{ 
     color:white
 } 
@@ -64,7 +51,7 @@ line-height: 1.58em;
 
 }
 
-.home button{  
+.home #FirstButton{  
     font-size:large;
     font-weight: bold;
     background-color: #34ffa9;
@@ -72,12 +59,73 @@ line-height: 1.58em;
     border-radius: 0px;
     width: 220px;
     height: 72px;
+}
+#FirstButton:hover{
+  background-color: white;
+}
+
+.home #aboutmeButton{
+  margin-top: 35px;
+  font-size:large;
+  font-weight: bold;
+  background-color: white;
+  color: black;
+  border-radius: 0px;
+  width: 180px;
+  height: 45px;
+  transition: background-color 0.3s
+}
+#aboutmeButton:hover{
+  background-color:#34ffa9;
+}
+
+.home #recentButton{
+  margin-top: 35px;
+  font-size:25px;
+  font-weight: bold;
+  background-color: #34ffa9;
+  color: black;
+  border-radius: 0px;
+  width: 220px;
+  height: 65px;
+  transition: background-color 0.3s
+}
+
+#recentButton:hover{
+  background-color:white;
+}
+
+.slider { 
+}
+ .home #slider_container {
+  width: 180px;
+  height: 600px;
+  overflow-y: scroll; 
+  transform: rotate(-90deg);
+}
+
+.home #silder_contentdiv {
+  width: 140px;
+  height: 140px;
+  margin: 10px;
+
+  background-color: #a8a8df;
+  
+  transform: rotate(90deg);
+}
+
+
+.home #SMLinks{
+  margin-top: 20px;
+  margin-right: 10px;
+  color:#66686c
 
 }
-.link-list{
-    color:#66686c
+.home #home-linklist{
+  margin-top: 100px;
+  
 }
- 
+
 
 .pp-images{
     height: 100%;
@@ -85,36 +133,12 @@ line-height: 1.58em;
 
 }
 
-#home-col-top{
-    height: 80%;
-
-}
-
-#home-col-bottom{
-    height: 20%;
-
-}
-
-.box{
-    height: 100px;
-    width: 100px;
-  }
-  .box1{
-    background-color: aqua;
-  }
-  .box2{
-    background-color: blue;
-  }
-  .box3{
-    background-color: red;
-  }
-
 #aboutme{
     font-size: 24px;
     margin-top: 0px;
     margin-bottom: 60px;
-     display: flex;
-     justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
      
 }   
  .left-col{
@@ -136,7 +160,7 @@ line-height: 1.58em;
 
 #PlaceOfWork{
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .pof_item{
@@ -147,14 +171,118 @@ line-height: 1.58em;
   justify-content: space-between;
   
 }
-.pof_company{  
-}
-
-.pof_position{   
-}
 
 .pof_item_line2{
 display: block ;
+}
+
+.home #sample_item{
+  width: 100%;
+  display: flex;
+  overflow-x: auto;
+  scrollbar-color: transparent transparent;
+  user-select: none;
+}
+#sample_item::-webkit-scrollbar{
+  height: 1px ;
+  background-color:transparent ;
+}
+
+.about{
+  color:white
+}
+.about #abouttitle{
+margin-top: 50px;
+}
+.about #aboutcontent{
+  font-size: 20px;
+  margin-top: 50px;
+  width: 50%;
+}
+.about .aboutlinks .item{
+  color:#34ffa9;
+  cursor: pointer;
+
+}
+.about .aboutlinks .linkitem:hover{
+   margin-left: 10px;
+   transition-property: all;
+   transition-duration: 1s;
+}
+
+.about .col-7 h4{
+font-size: 20px;
+color:#66686c;
+}
+.about .col-7 h5{
+  font-size: 16px;
+  display: inline;
+
+  }
+
+.about #email:hover{
+  transition:color 0.3s;
+  color: #34ffa9;
+  cursor: pointer;
+
+}
+
+.about #phone:hover{
+  transition:color 0.3s;
+  color: #34ffa9;
+  cursor: pointer;
+
+}
+
+.contacts{
+  color: white;
+}
+.contacts .titleContact{
+  margin-top: 30px;
+}
+.contacts .titleContact p{
+  font-size: 75px;
+}
+.contacts form{
+  width: 85%;
+}
+.contacts form Input{
+ background-color: transparent;
+ border: none;
+ border-bottom: 2px solid #66686c;
+ ;
+}
+.contacts form input {
+  
+  border: none;
+  margin-top: 80px;
+  height: 60px;
+  border-bottom: 2px solid #66686c;
+  ;
+ }
+ .contacts form textarea{
+  margin-top: 80px;
+  margin-bottom: 40px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #66686c;
+
+  ;
+ }
+ .contacts #contactButton{
+  margin-bottom: 40px;
+  background-color:#34ffa9;
+  width: 160px;
+  height: 50px;
+ }
+ .contacts #contactButton:hover{
+  background-color: white;
+  transition: all;
+  transition-duration: 0.3s;
+}
+ .contacts #explanation{
+  font-size: 25px;
+  color: #66686c;
 }
 
 .subTitleDiv{
@@ -206,3 +334,4 @@ display: block ;
  .footer_items{
   display: inline-block;
  }
+

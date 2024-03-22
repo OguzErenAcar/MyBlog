@@ -7,14 +7,14 @@ import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
 function Navibar(args) {
   return (
     <div>
-      <Navbar class="navibar " style={{height:180}}>
+      <Navbar class="navibar " style={{ marginTop:30,height:120}}>
         <div class="h-100 w-100 align-items-center">
         <div class="row   ">
           <div class="col-3">
             {/* <NavbarBrand href="/">MySite</NavbarBrand> */}
             <div class="text-white d-flex ">
             <img src="/images/logo.png" class="logo" alt=""></img>
-             <h5 class="my-auto ms-2 custom-font"> Oğuz Eren</h5>
+             <h3 class="my-auto ms-2 custom-font"> Oğuz Eren</h3>
             </div>
           </div>
           <div class="col-5 ms-auto">

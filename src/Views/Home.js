@@ -3,6 +3,7 @@ import { Button } from 'reactstrap';
 import AboutMe from '../Components/AboutMe'
 import RecentProjects from "../Components/RecentProjects";
 import PlacesOfWork from "../Components/PlacesOfWork";
+
 export default class Home extends Component {
 
   
@@ -19,8 +20,8 @@ export default class Home extends Component {
         <div class="d-flex h-100   align-items-start">
           <div class="w-100 d-flex flex-column h-100 ">
             <div id="home-col-top" class="container-fluid d-flex " >
-              <div class="row  w-100 mx-auto  ">
-                <div class="col-6 my-auto "  >
+              <div class="row  w-100  ">
+                <div class="col-6 "  >
                   <div>
                     <h1>Bring your brand to life with our <br/> help</h1>
                   </div>
@@ -31,8 +32,13 @@ export default class Home extends Component {
                     </h3>
                   </div>
                   <div class="pt-4">
-                  <Button class="home-button">Contact {'/>'}</Button>{' '}
+                  <Button id="FirstButton">Contact {'/>'}</Button>{' '}
                   </div>
+                  <div id="home-linklist" class=" d-flex justify-content-between ">
+              {linklist.map(item=>(
+                <h5 id="SMLinks">{item}</h5>
+              ))}
+            </div>
                 </div>
                 <div class="col-6 my-auto" >
                   <div class=" container-fluid d-flex  h-100 w-100">
@@ -43,11 +49,7 @@ export default class Home extends Component {
                 </div>
               </div>
             </div>
-            <div id="home-col-bottom" class="link-list d-flex col-5 align-items-center justify-content-between ">
-              {linklist.map(item=>(
-                <h5>{item}</h5>
-              ))}
-            </div>
+          
           </div>
         </div>
        <AboutMe></AboutMe>

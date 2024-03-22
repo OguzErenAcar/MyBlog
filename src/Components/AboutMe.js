@@ -30,7 +30,7 @@ function AboutMe(args) {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
-          <button style={{ marginTop: 35 + "px" }}></button>
+          <button id="aboutmeButton" >Linkedin Profil /{'>'}</button>
         </div>
       </div>
     </div>
