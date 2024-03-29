@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { routes } from "../Routes";
+import { Naviroutes } from "../Routes";
 import { Link } from "react-router-dom";
 
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
@@ -19,7 +19,7 @@ function Navibar(args) {
           </div>
           <div class="col-5 ms-auto">
             <Nav class="d-flex justify-content-between align-items-center h-100 w-100" >
-              {routes.map((route,index) => (
+              {Naviroutes.map((route,index) => (
                 <NavItem key={index}>
                   <NavLink  href={route.path} class="text-decoration-none text-white  " >
                    <h5> {route.name}</h5>

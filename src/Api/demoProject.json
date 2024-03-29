@@ -1,9 +1,0 @@
-{
-    "projects":[
-        {"id":0,"name":"project1","desc":"desc1"},
-        {"id":1,"name":"project2","desc":"desc2"},
-        {"id":2,"name":"project3","desc":"desc3"},
-        {"id":3,"name":"project4","desc":"desc4"},
-        {"id":4,"name":"project5","desc":"desc5"}
-    ]
-}

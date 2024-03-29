@@ -16,8 +16,7 @@ function App() {
                 exact={route.exact}
                 path={route.path}
                 key={index}
-                element={<route.component />}
-                 // element prop'unu ekleyin
+                element={<route.component />} 
               />
             ))}
           </Routes>

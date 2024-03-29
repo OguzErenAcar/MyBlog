@@ -3,7 +3,7 @@ import { Octokit } from "octokit";
 
 const initialState = { 
     data:"",
-    projectName:"",
+    projectName:null,
     loading: false,
     error: null,
 };
@@ -13,6 +13,7 @@ const octokit = new Octokit({
   })
   
   const fetchReadme = async (projectName) => {
+
     const result=await octokit.request('GET /repos/{owner}/{repo}/contents/{path}', {
         owner: 'OguzErenAcar',
         repo: projectName,
@@ -36,7 +37,7 @@ const octokit = new Octokit({
   async (_, thunkAPI) => {
     const projectName = thunkAPI.getState().projectDetails.projectName;
     const result = await fetchReadme(projectName);
-
+    console.log("sea"+projectName)
     return result; // fetch işleminden dönen değeri eylem fonksiyonu sonucu olarak döndürüyoruz
 }
 );
@@ -47,29 +48,11 @@ const ProjectDetailsSlice = createSlice({
   initialState, //state
   reducers: {
     setProjectName:(state,action)=>{
+        console.log(action.payload)
         state.projectName=action.payload   
     }
    
-  },
-  extraReducers: {
-    //eğer api ile initialstate güncellemek istersek 
-
-  //   [fetchDetails.pending]: (state) => {
-  //     state.loading = true;
-  //     state.error = null;
-  //     state.data = null; // Fetch işlemi başlamadan önce data alanını sıfırlayalım
-  // },
-  // [fetchDetails.fulfilled]: (state, action) => {
-  //     state.loading = false;
-  //     state.error = null;
-  //     state.data = action.payload; // Fetch işlemi başarılı olduğunda fetch işleminden dönen değeri state.data alanına atayalım
-  // },
-  // [fetchDetails.rejected]: (state, action) => {
-  //     state.loading = false;
-  //     state.error = action.error.message;
-  //     state.data = null; // Fetch işlemi başarısız olduğunda data alanını sıfırlayalım
-  // },
-  },
+  }
 });
 //actionlari yayinla
 export const {setProjectName} = ProjectDetailsSlice.actions;

@@ -1,11 +1,11 @@
 @font-face {
     font-family: 'RobotoMono';
-    src: url('Assets/RobotoMono-VariableFont_wght.ttf') format('truetype');
+    src: url('../Assets/RobotoMono-VariableFont_wght.ttf') format('truetype');
   }
 
   @font-face {
     font-family: 'RobotoRegular';
-    src: url('Assets/Roboto-Regular.ttf') format('truetype');
+    src: url('../Assets/Roboto-Regular.ttf') format('truetype');
   }
 
   
@@ -283,6 +283,32 @@ color:#66686c;
  .contacts #explanation{
   font-size: 25px;
   color: #66686c;
+}
+.Projects{
+  color:white;
+}
+.Projects #projectsTittle{
+  font-size: 80px;
+}
+.Projects .projectsGrid{
+  background-color:transparent;
+  display:grid;
+  grid-template-columns: auto auto;
+  column-gap: 150px;
+  row-gap:20px;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+
+.Projects .projectsGrid a{
+  color: white;
+  font-size: 30px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .subTitleDiv{

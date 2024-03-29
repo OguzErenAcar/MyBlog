@@ -8,6 +8,7 @@ const initialState = {
   error: null,
 };
 
+// export const getProject=initialState.selectedProject;
 
 //api istegi burdan
 export const getProjectsList = createAsyncThunk(
@@ -35,8 +36,7 @@ const projectsListSlice = createSlice({
   initialState, //state
   reducers: {
     //actionlar
-    setSelected: (state, action) => {
-      console.log("selected")
+    setSelected: (state, action) => { 
       state.selectedProject = action.payload; 
     },
   },
@@ -50,6 +50,5 @@ const projectsListSlice = createSlice({
 });
 //actionlari yayinla
 export const { setSelected } = projectsListSlice.actions;
-
 //slice yayinla
 export default projectsListSlice.reducer;
