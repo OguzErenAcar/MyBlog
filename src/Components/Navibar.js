@@ -21,10 +21,10 @@ function Navibar(args) {
             <Nav class="d-flex justify-content-between align-items-center h-100 w-100" >
               {Naviroutes.map((route,index) => (
                 <NavItem key={index}>
-                  <NavLink  href={route.path} class="text-decoration-none text-white  " >
+                  <Link  to={route.path} class="nav-link text-decoration-none text-white  " >
                    <h5> {route.name}</h5>
                    {/* <Link to={route.path}>{route.name}</Link> */}
-                  </NavLink>
+                  </Link>
                 </NavItem>
               ))}
             </Nav> 

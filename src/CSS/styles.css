@@ -23,7 +23,8 @@ background-color: #23272d;
     color:white;
     cursor: pointer;
  }
- .nav-link:hover{
+ .nav-link h5:hover{
+  transition: 0.4s;
   color:#34ffa9 ;
  }
  
