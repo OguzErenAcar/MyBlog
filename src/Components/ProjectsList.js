@@ -1,60 +1,56 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import React, { Component } from "react";
-import { getProjectsList, setSelected,  fetchDetails,  clearReadme, } from "../Redux/Slices/projectListSlice";  
+import {useMemo ,memo } from 'react';
+
+import {
+  getProjectsList,
+  setSelected,
+  clear,
+  fetchDetails 
+} from "../Redux/Slices/projectListSlice";
 
 const ProjectsList = () => {
-  const dispatch = useDispatch();
-
-  const projects = useSelector((state) => state.projectList);
-  const [list, setList] = useState([]);
-   
-    useEffect(() => {  
-      dispatch(getProjectsList());
-  }, []);
+  const dispatch = useDispatch(); 
+  const [todo, settodo] = useState([]);
+  const [list, setlist] = useState([]);
 
   useEffect(() => {  
-    if (!projects.projects.loading) { 
-      projects.projects.Content.forEach((element) => {
-        dispatch(fetchDetails(element.name));
+    dispatch(getProjectsList()).then((res) => { 
+      const array = res.payload.map(item=>{return {name:item.name}})
+      settodo(array)
+    });
+  }, []);
+  
+  useEffect(()=>{ 
+    var updatelist=[]
+    todo.forEach((element,i) => { 
+      dispatch(fetchDetails(element.name)).then((item,i)=>{ 
+        const image=getImg(item.payload.Readme)
+       const obj={
+          name:item.payload.name,
+          Readme:item.payload.Readme,
+          image
+        }
+        setlist(prevlist=>prevlist.concat(obj))
       });
-    }
-  }, [projects.projects.Content]);
+    }); 
+  },[todo])
 
-
-  useEffect(()=>{
-      if(projects.projectsReadme.Content.length>=projects.projects.Content.length){ 
-        projects.projectsReadme.Content.forEach((item,i)=>{ 
-          const obj={
-             ...item,
-            image:getImg(item.Readme) 
-          }
-          setList(prevUsers => prevUsers.concat(obj));
-
-        })
-        
-      }
-  },[projects.projectsReadme.Content])
-
-
-
-  // useEffect(()=>{
-  //   console.log(list)
-  // },[list])
-
+useEffect(()=>{
+  console.log(list)
+},[list]) 
 
   const getImg = (Readme) => {
-    try{
-
+    try {
       const regex = /\(([^)]+)\)/;
-      const str = Readme.split("![")[1]; 
+      const str = Readme.split("![")[1];
       const matches = str.match(regex);
       if (matches) {
         const mytext = matches[1];
         return mytext;
       }
-    }catch(e){
-
+    } catch (e) {
       return "";
     }
   };
@@ -65,16 +61,21 @@ const ProjectsList = () => {
   };
 
   return (
-    <div class="projectsGrid"> 
+    <div class="projectsGrid">
       {list.map((project, index) => (
         <div
           onClick={() => selectProject(project.id)}
-          id={"projeItem" + { index }}  >
-            {project.image!==""?(
-          <img alt="" src={project.image} className="projectImg"></img>
-            ):(
-          <img alt="" src="https://png.pngtree.com/png-vector/20190701/ourmid/pngtree-planning-icon-for-your-project-png-image_1532803.jpg" className="projectImg"></img>
-            )}
+          id={"projeItem" + { index }}
+        >
+          {project.image !== "" ? (
+            <img alt="" src={project.image} className="projectImg"></img>
+          ) : (
+            <img
+              alt=""
+              src="https://png.pngtree.com/png-vector/20190701/ourmid/pngtree-planning-icon-for-your-project-png-image_1532803.jpg"
+              className="projectImg"
+            ></img>
+          )}
           <a href={"Projects/" + project.name}>{project.name}</a>
         </div>
       ))}
@@ -83,4 +84,3 @@ const ProjectsList = () => {
 };
 
 export default ProjectsList;
- 
