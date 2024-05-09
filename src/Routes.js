@@ -8,35 +8,35 @@ export const routes =[
         path:"/",
         name:"Home",
         exact:true,
-        component:Home,
+        element:<Home/>,
         auth:false 
     },
     {
         path:"/About",
         name:"About",
         exact:true,
-        component:About,
+        element:<About/>,
         auth:false 
     },
     {
         path:"/Projects",
         name:"Projects",
         exact:true,
-        component:Projects,
+        element:<Projects/>,
         auth:false 
     },
     {
         path:"/Projects/:projectName",
         name:"Projects",
         exact:true,
-        component:ProjectDetails,
+        element:<ProjectDetails/>,
         auth:false 
     },
     {
         path:"/Contact",
         name:"Contact",
         exact:true,
-        component:Contact,
+        element:<Contact/>,
         auth:false 
     }
  
@@ -48,28 +48,28 @@ export const Naviroutes =[
         path:"/",
         name:"Home",
         exact:true,
-        component:Home,
+        element:<Home/>,
         auth:false 
     },
     {
         path:"/About",
         name:"About",
         exact:true,
-        component:About,
+        element:<About/>,
         auth:false 
     },
     {
         path:"/Projects",
         name:"Projects",
         exact:true,
-        component:Projects,
+        element:<Projects/>,
         auth:false 
     },
     {
         path:"/Contact",
         name:"Contact",
         exact:true,
-        component:Contact,
+        element:<Contact/>,
         auth:false 
     }
  
