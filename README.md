@@ -1,7 +1,7 @@
 
 # MyBlog 
 
-A blog page introducing myself was made with react.
+A blog page introducing myself was make with react.
 
 # Used Technologies
 - Javascript ,React
