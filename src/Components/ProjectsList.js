@@ -53,6 +53,7 @@ const ProjectsList = () => {
     let completed = 0;
     todo.forEach((element) => {
       dispatch(fetchDetails(element.name)).then((item)=>{
+        if (!item.payload) { completed++; if (completed === todo.length) setLoading(false); return; }
         const image=getImg(item.payload.Readme)
         const obj={
           name:item.payload.name,
