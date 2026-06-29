@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { getProjectsList, fetchDetails } from "../Redux/Slices/projectListSlice";
 import { useNavigate } from "react-router-dom";
@@ -12,6 +12,9 @@ function RecentProjects() {
   const [scrollLeft, setScrollLeft] = useState(0);
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [hovered, setHovered] = useState(false);
+  const directionRef = useRef(1);
+  const rafRef = useRef(null);
 
   useEffect(() => {
     dispatch(getProjectsList()).then((res) => {
@@ -42,13 +45,38 @@ function RecentProjects() {
     });
   }, [dispatch]);
 
+  const autoScroll = useCallback(() => {
+    const el = itemsRef.current;
+    if (!el) return;
+
+    const maxScroll = el.scrollWidth - el.clientWidth;
+    if (maxScroll <= 0) return;
+
+    el.scrollLeft += directionRef.current * 0.5;
+
+    if (el.scrollLeft >= maxScroll) directionRef.current = -1;
+    if (el.scrollLeft <= 0) directionRef.current = 1;
+
+    rafRef.current = requestAnimationFrame(autoScroll);
+  }, []);
+
+  useEffect(() => {
+    if (loading || hovered || isMouseDown) {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      return;
+    }
+    rafRef.current = requestAnimationFrame(autoScroll);
+    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
+  }, [loading, hovered, isMouseDown, autoScroll]);
+
   const handleMouseDown = (e) => {
     setIsMouseDown(true);
     setStartX(e.pageX - itemsRef.current.offsetLeft);
     setScrollLeft(itemsRef.current.scrollLeft);
   };
   const handleMouseUp = () => setIsMouseDown(false);
-  const handleMouseLeave = () => setIsMouseDown(false);
+  const handleMouseEnter = () => setHovered(true);
+  const handleMouseLeave = () => { setIsMouseDown(false); setHovered(false); };
   const handleMouseMove = (e) => {
     if (!isMouseDown) return;
     e.preventDefault();
@@ -68,8 +96,9 @@ function RecentProjects() {
           <div
             className="recent-slider"
             ref={itemsRef}
-            onMouseDown={handleMouseDown}
+            onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
+            onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUp}
             onMouseMove={handleMouseMove}
           >
