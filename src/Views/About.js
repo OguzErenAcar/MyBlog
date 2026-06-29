@@ -13,11 +13,14 @@ export default function About() {
       <div className="about" ref={revealRef}>
         <h1 id="abouttitle">About me</h1>
         <div className="about-top">
-          <p id="aboutcontent">
-            Hello, I am Oğuz, I am a jr.developer dealing with software. Recently, I have been developing frontend projects with React.
-            <br/><br/>
-            I studied computer engineering at Erzurum Technical University and worked on many personal projects. I like to work. I take care to create innovations and high-performance products in software.
-          </p>
+          <div className="about-top-left">
+            <p id="aboutcontent">
+              Hello, I am Oğuz, I am a jr.developer dealing with software. Recently, I have been developing frontend projects with React.
+              <br/><br/>
+              I studied computer engineering at Erzurum Technical University and worked on many personal projects. I like to work. I take care to create innovations and high-performance products in software.
+            </p>
+          </div>
+          <div className="about-top-right">
           <div className="cv-box">
             <div className="cv-box-icon">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#34ffa9" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
