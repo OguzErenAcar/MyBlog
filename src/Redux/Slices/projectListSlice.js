@@ -31,7 +31,7 @@ export const getProjectsList = createAsyncThunk(
       });
       return result.data;
     } catch (error) {
-      console.log(error);
+      return [];
     }
   }
 );
