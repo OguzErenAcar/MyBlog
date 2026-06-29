@@ -66,7 +66,7 @@ const ProjectsList = () => {
         if (completed === todo.length) setLoading(false);
       });
     });
-  },[todo])
+  },[todo, dispatch])
 
   const getImg = (Readme) => {
     try {
