@@ -322,9 +322,12 @@ color:#66686c;
   
   }
   .projectImg{
-    height: 300px;
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
     display: block;
-    margin:auto
+    margin:auto;
+    border-radius: 4px;
   }
  
 
