@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Button } from 'reactstrap';
 import AboutMe from '../Components/AboutMe'
 import RecentProjects from "../Components/RecentProjects";
@@ -6,10 +6,12 @@ import PlacesOfWork from "../Components/PlacesOfWork";
 import { useNavigate } from "react-router-dom";
 
 function Home() {
+    const [imgLoaded, setImgLoaded] = useState(false);
+
     const linklist=[
       {name:"GitHub",link:"https://github.com/OguzErenAcar"},
-      {name:"Instagram",link:"https://www.instagram.com/oguzerna/"}, 
-      {name:"Linkedin",link:"https://www.linkedin.com/in/oguz-eren-acar-6440b820b/"}, 
+      {name:"Instagram",link:"https://www.instagram.com/oguzerna/"},
+      {name:"Linkedin",link:"https://www.linkedin.com/in/oguz-eren-acar-6440b820b/"},
     ]
     const navigate = useNavigate();
 
@@ -31,7 +33,7 @@ function Home() {
                   </div>
                   <div class="pt-4">
                     <h3>
-                    I am a jr.developer dealing with software. Recently, I have been developing frontend projects  
+                    I am a jr.developer dealing with software. Recently, I have been developing frontend projects
                     </h3>
                   </div>
                   <div class="pt-4">
@@ -45,14 +47,21 @@ function Home() {
                 </div>
                 <div class="col-6 my-auto" >
                   <div class=" container-fluid d-flex  h-100 w-100">
-                  <img src='/images/pp.png' class="pp-images mx-auto" alt=""  />
+                  {!imgLoaded && <div className="skeleton skeleton-hero-img mx-auto"></div>}
+                  <img
+                    src='/images/pp.png'
+                    className="pp-images mx-auto"
+                    alt=""
+                    onLoad={() => setImgLoaded(true)}
+                    style={imgLoaded ? {} : {display: 'none'}}
+                  />
                   </div>
-                  <div> 
+                  <div>
                   </div>
                 </div>
               </div>
             </div>
-          
+
           </div>
         </div>
        <AboutMe></AboutMe>
