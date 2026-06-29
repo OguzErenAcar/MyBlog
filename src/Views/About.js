@@ -37,6 +37,7 @@ export default function About() {
               Open CV →
             </a>
           </div>
+          </div>
         </div>
        <div className="subTitleDiv reveal">
         <h2>Social links:</h2>
