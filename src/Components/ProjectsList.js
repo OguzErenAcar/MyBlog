@@ -43,6 +43,7 @@ const ProjectsList = () => {
 
   useEffect(() => {
     dispatch(getProjectsList()).then((res) => {
+      if (!res.payload || !Array.isArray(res.payload)) { setLoading(false); return; }
       const array = res.payload.map(item=>{return {name:item.name}})
       settodo(array)
     });
