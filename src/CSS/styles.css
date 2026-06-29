@@ -336,8 +336,8 @@ color:#66686c;
     background-color: #34ffa9;
     height: 5px;
     border-radius: 1px;
-    width: 725px;
-   
+    width: min(725px, 60%);
+    flex-shrink: 1;
  }
  .footer_img{
      left: 0;
