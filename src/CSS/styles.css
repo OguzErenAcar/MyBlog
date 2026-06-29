@@ -1029,6 +1029,13 @@ color:#66686c;
   #aboutme #content2 {
     margin-right: 0;
   }
+  .about-top {
+    flex-direction: column;
+  }
+  .cv-box {
+    flex: none;
+    width: 100%;
+  }
   .project-detail-page {
     padding: 20px 15px 60px;
   }
