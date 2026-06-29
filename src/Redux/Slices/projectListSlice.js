@@ -61,7 +61,7 @@ export const fetchDetails = createAsyncThunk(
 
       return await result;
     } catch (error) {
-      console.log(error);
+      return { name: projectName, Readme: "" };
     }
   }
 );
