@@ -287,18 +287,18 @@ color:#66686c;
   color: #66686c;
 }
 .Projects{
-  height: 4700px;
+  min-height: 100vh;
   color:white;
+  padding: 0 5%;
 }
 .Projects #projectsTittle{
-  font-size: 80px;
+  font-size: clamp(36px, 8vw, 80px);
 }
 .Projects .projectsGrid{
   background-color:transparent;
   display:grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 150px;
-  row-gap:160px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 40px;
   justify-content: center;
   margin-top: 40px;
   margin-bottom: 50px;
@@ -306,7 +306,7 @@ color:#66686c;
 
 .Projects .projectsGrid a{
   color: white;
-  font-size: 30px;
+  font-size: clamp(18px, 3vw, 30px);
   text-decoration: none;
   display: flex;
   justify-content: center;

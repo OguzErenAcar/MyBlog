@@ -56,7 +56,7 @@ function Home() {
           </div>
         </div>
        <AboutMe></AboutMe>
-       {/* <RecentProjects></RecentProjects> */}
+        <RecentProjects></RecentProjects>  
        <PlacesOfWork></PlacesOfWork>
       </div>
       

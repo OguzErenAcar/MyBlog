@@ -1,5 +1,4 @@
-import { motion, useTransform, useScroll } from "framer-motion";
-import { useRef, useState } from "react";
+ import { useRef, useState } from "react";
 
  function RecentProjects() {
     const sliderItems = [
