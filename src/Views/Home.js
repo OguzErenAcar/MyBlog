@@ -4,9 +4,11 @@ import AboutMe from '../Components/AboutMe'
 import RecentProjects from "../Components/RecentProjects";
 import PlacesOfWork from "../Components/PlacesOfWork";
 import { useNavigate } from "react-router-dom";
+import useReveal from "../Components/useReveal";
 
 function Home() {
     const [imgLoaded, setImgLoaded] = useState(false);
+    const revealRef = useReveal();
 
     const linklist=[
       {name:"GitHub",link:"https://github.com/OguzErenAcar"},
