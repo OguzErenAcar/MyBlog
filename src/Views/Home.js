@@ -66,9 +66,9 @@ function Home() {
 
           </div>
         </div>
-       <AboutMe></AboutMe>
-        <RecentProjects></RecentProjects>  
-       <PlacesOfWork></PlacesOfWork>
+       <div className="reveal"><AboutMe></AboutMe></div>
+       <div className="reveal"><RecentProjects></RecentProjects></div>
+       <div className="reveal"><PlacesOfWork></PlacesOfWork></div>
       </div>
       
     ); 
