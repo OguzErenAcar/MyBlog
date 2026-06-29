@@ -12,10 +12,10 @@ function Navibar(args) {
         <div class="row   ">
           <div class="col-3">
             {/* <NavbarBrand href="/">MySite</NavbarBrand> */}
-            <div class="text-white d-flex ">
+            <Link to="/" class="text-white d-flex text-decoration-none">
             <img src="/images/logo.png" class="logo" alt=""></img>
              <h3 class="my-auto ms-2 custom-font"> Oğuz Eren</h3>
-            </div>
+            </Link>
           </div>
           <div class="col-5 ms-auto">
             <Nav class="d-flex justify-content-between align-items-center h-100 w-100" >
