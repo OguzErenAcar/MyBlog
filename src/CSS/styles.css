@@ -843,4 +843,11 @@ color:#66686c;
   #aboutme #content2 {
     margin-right: 0;
   }
+  .project-detail-page {
+    padding: 20px 15px 60px;
+  }
+  .project-detail-content pre {
+    padding: 12px;
+    font-size: 13px;
+  }
 }
