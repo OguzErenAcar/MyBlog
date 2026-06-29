@@ -238,6 +238,72 @@ animation: fadeInLeft 0.8s ease-out 0.15s both;
     margin-right: 25px;
   }
 
+/* ===== CV CARD ===== */
+
+.cv-card {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 22px;
+  border: 1px solid rgba(52, 255, 169, 0.2);
+  border-radius: 10px;
+  background: rgba(52, 255, 169, 0.03);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.cv-card:hover {
+  border-color: rgba(52, 255, 169, 0.5);
+  box-shadow: 0 0 18px rgba(52, 255, 169, 0.12), 0 0 40px rgba(52, 255, 169, 0.04);
+}
+
+.cv-card-icon {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(52, 255, 169, 0.08);
+  border: 1px solid rgba(52, 255, 169, 0.15);
+}
+
+.cv-card-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+.cv-card-title {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+.cv-card-sub {
+  color: #66686c;
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+.cv-card-btn {
+  flex-shrink: 0;
+  padding: 10px 20px;
+  background: #34ffa9;
+  color: #23272d;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+.cv-card-btn:hover {
+  background: white;
+  color: #23272d;
+  box-shadow: 0 0 16px rgba(52, 255, 169, 0.3);
+  transform: translateY(-2px);
+}
+
 /* ===== PLACE OF WORK ===== */
 
 #PlaceOfWork{
