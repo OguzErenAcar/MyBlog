@@ -373,3 +373,29 @@ color:#66686c;
   display: inline-block;
  }
 
+@media (max-width: 768px) {
+  .Projects {
+    padding: 0 15px;
+  }
+  .Projects .projectsGrid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .subTitleDiv {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .line {
+    width: 100%;
+  }
+  #aboutme {
+    flex-direction: column;
+  }
+  #aboutme #content1 {
+    margin-right: 0;
+  }
+  #aboutme #content2 {
+    margin-right: 0;
+  }
+}
+
