@@ -42,6 +42,24 @@ I studied computer engineering at Erzurum Technical University and worked on man
           <h4>Phone:</h4>
           <h5 id="phone">+90 537 357 16 25</h5>
         </div>
+        <div className="cv-card mt-4">
+          <div className="cv-card-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#34ffa9" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+          </div>
+          <div className="cv-card-text">
+            <span className="cv-card-title">My Resume</span>
+            <span className="cv-card-sub">View & download my CV</span>
+          </div>
+          <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" className="cv-card-btn">
+            Open CV →
+          </a>
+        </div>
       </div>
       </div>
        </div>
