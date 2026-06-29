@@ -592,6 +592,218 @@ color:#66686c;
   width: 60%;
 }
 
+/* ===== PROJECT DETAIL PAGE ===== */
+
+.project-detail-page {
+  color: white;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px 80px;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.project-detail-back {
+  color: #34ffa9;
+  text-decoration: none;
+  font-size: 16px;
+  display: inline-block;
+  margin-bottom: 24px;
+  transition: text-shadow 0.3s, transform 0.3s;
+}
+.project-detail-back:hover {
+  text-shadow: 0 0 10px rgba(52, 255, 169, 0.5);
+  color: #34ffa9;
+  transform: translateX(-4px);
+}
+
+.project-detail-header {
+  border-bottom: 1px solid rgba(52, 255, 169, 0.15);
+  padding-bottom: 28px;
+  margin-bottom: 32px;
+}
+
+.project-detail-title {
+  font-family: "RobotoMono", Sans-serif;
+  font-size: clamp(28px, 5vw, 42px);
+  margin-bottom: 10px;
+  text-shadow: 0 0 12px rgba(52, 255, 169, 0.15);
+}
+
+.project-detail-desc {
+  color: #a0a4ab;
+  font-size: 18px;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.project-detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.project-detail-badge {
+  background: rgba(52, 255, 169, 0.1);
+  border: 1px solid rgba(52, 255, 169, 0.25);
+  color: #34ffa9;
+  padding: 4px 14px;
+  border-radius: 14px;
+  font-size: 14px;
+}
+
+.project-detail-topic {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #a0a4ab;
+  padding: 4px 12px;
+  border-radius: 14px;
+  font-size: 13px;
+}
+
+.project-detail-github-btn {
+  display: inline-block;
+  background: #34ffa9;
+  color: #23272d;
+  font-weight: bold;
+  padding: 10px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 15px;
+  transition: all 0.3s;
+}
+.project-detail-github-btn:hover {
+  background: white;
+  color: #23272d;
+  box-shadow: 0 0 20px rgba(52, 255, 169, 0.3);
+  transform: translateY(-2px);
+}
+
+/* markdown content */
+.project-detail-content {
+  line-height: 1.7;
+  font-size: 16px;
+}
+.project-detail-content h1,
+.project-detail-content h2,
+.project-detail-content h3,
+.project-detail-content h4 {
+  color: white;
+  margin-top: 32px;
+  margin-bottom: 12px;
+  font-family: "RobotoMono", Sans-serif;
+}
+.project-detail-content h1 {
+  font-size: 28px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(52, 255, 169, 0.15);
+}
+.project-detail-content h2 {
+  font-size: 22px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.project-detail-content h3 { font-size: 18px; }
+.project-detail-content p {
+  color: #c8ccd3;
+  margin-bottom: 16px;
+}
+.project-detail-content a {
+  color: #34ffa9;
+  text-decoration: none;
+  transition: text-shadow 0.3s;
+}
+.project-detail-content a:hover {
+  text-shadow: 0 0 8px rgba(52, 255, 169, 0.4);
+  text-decoration: underline;
+}
+.project-detail-content img {
+  max-width: 100%;
+  border-radius: 8px;
+  border: 1px solid rgba(52, 255, 169, 0.2);
+  margin: 16px 0;
+}
+.project-detail-content code {
+  background: rgba(52, 255, 169, 0.08);
+  color: #34ffa9;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: "RobotoMono", monospace;
+}
+.project-detail-content pre {
+  background: #1a1d22;
+  border: 1px solid rgba(52, 255, 169, 0.1);
+  border-radius: 8px;
+  padding: 16px;
+  overflow-x: auto;
+  margin: 16px 0;
+}
+.project-detail-content pre code {
+  background: none;
+  padding: 0;
+  color: #c8ccd3;
+  font-size: 14px;
+}
+.project-detail-content ul,
+.project-detail-content ol {
+  color: #c8ccd3;
+  padding-left: 24px;
+  margin-bottom: 16px;
+}
+.project-detail-content li {
+  margin-bottom: 6px;
+}
+.project-detail-content blockquote {
+  border-left: 3px solid #34ffa9;
+  padding-left: 16px;
+  margin: 16px 0;
+  color: #a0a4ab;
+}
+.project-detail-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+}
+.project-detail-content th,
+.project-detail-content td {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px 14px;
+  text-align: left;
+}
+.project-detail-content th {
+  background: rgba(52, 255, 169, 0.06);
+  color: #34ffa9;
+}
+.project-detail-content hr {
+  border: none;
+  border-top: 1px solid rgba(52, 255, 169, 0.15);
+  margin: 28px 0;
+}
+
+.project-detail-no-readme {
+  text-align: center;
+  padding: 60px 20px;
+  color: #66686c;
+  font-size: 18px;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+.project-detail-empty {
+  text-align: center;
+  padding: 80px 20px;
+}
+.project-detail-empty h2 {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+.project-detail-empty p {
+  color: #66686c;
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+
 /* ===== SCROLL REVEAL ===== */
 
 .reveal {
