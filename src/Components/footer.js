@@ -2,14 +2,6 @@ import React, { Component } from "react";
 
 export default class Footer extends Component {
   render() {
-    const list =[
-      "Behance",
-      "Dribbble",
-      "GitHub",
-      "Facebook",
-      "Instagram"
-    ];
-
     return (
       <div className="footer_img">
         <div className="footer_content container">
