@@ -67,15 +67,11 @@ useEffect(()=>{
           onClick={() => selectProject(project.id)}
           id={"projeItem" + { index }}
         >
-          {project.image !== "" ? (
-            <img alt="" src={project.image} className="projectImg"></img>
-          ) : (
-            <img
-              alt=""
-              src="https://png.pngtree.com/png-vector/20190701/ourmid/pngtree-planning-icon-for-your-project-png-image_1532803.jpg"
-              className="projectImg"
-            ></img>
-          )}
+          <img
+            alt={project.name}
+            src={project.image || "/images/defaultproject.jpg"}
+            className="projectImg"
+          />
           <a href={"Projects/" + project.name}>{project.name}</a>
         </div>
       ))}
