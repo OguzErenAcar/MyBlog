@@ -16,7 +16,7 @@ const initialState = {
 };
 
 const octokit = new Octokit({
-  auth: "",
+  auth: process.env.REACT_APP_GITHUB_TOKEN,
 });
 
 export const getProjectsList = createAsyncThunk(
