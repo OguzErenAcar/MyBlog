@@ -24,7 +24,7 @@ function Home() {
     }
 
     return (
-      <div class="home ">
+      <div className="home" ref={revealRef}>
         <div class="d-flex h-100   align-items-start">
           <div class="w-100 d-flex flex-column h-100 ">
             <div id="home-col-top" class="container-fluid d-flex " >
