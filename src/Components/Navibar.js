@@ -2,7 +2,7 @@ import React from "react";
 import { Naviroutes } from "../Routes";
 import { Link } from "react-router-dom";
 
-import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
+import { Navbar, Nav, NavItem } from "reactstrap";
 
 function Navibar(args) {
   return (
