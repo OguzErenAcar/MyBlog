@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import ProjectsList from "../Components/ProjectsList"
-import ProjectDetails from '../Components/ProjectDetails'
 
 export default class Projects extends Component {
   render() {
