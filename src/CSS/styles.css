@@ -327,7 +327,14 @@ color:#66686c;
     object-fit: cover;
     display: block;
     margin:auto;
-    border-radius: 4px;
+    border-radius: 8px;
+    border: 1px solid rgba(52, 255, 169, 0.3);
+    box-shadow: 0 0 12px rgba(52, 255, 169, 0.15), 0 0 30px rgba(52, 255, 169, 0.05);
+    transition: box-shadow 0.3s, border-color 0.3s;
+  }
+  .projectImg:hover{
+    border-color: rgba(52, 255, 169, 0.7);
+    box-shadow: 0 0 16px rgba(52, 255, 169, 0.35), 0 0 40px rgba(52, 255, 169, 0.12);
   }
  
 
