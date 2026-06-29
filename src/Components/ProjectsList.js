@@ -47,7 +47,7 @@ const ProjectsList = () => {
       const array = res.payload.map(item=>{return {name:item.name}})
       settodo(array)
     });
-  }, []);
+  }, [dispatch]);
 
   useEffect(()=>{
     if (todo.length === 0) return;
