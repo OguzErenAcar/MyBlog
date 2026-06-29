@@ -1,223 +1,111 @@
- import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getProjectsList, fetchDetails } from "../Redux/Slices/projectListSlice";
+import { useNavigate } from "react-router-dom";
 
- function RecentProjects() {
-    const sliderItems = [
-      {
-        id: 0,
-        name: "imgage",
-        src: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
-      },
-      {
-        id: 1,
-        name: "imgage",
-        src: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
-      },
-      {
-        id: 2,
-        name: "imgage",
-        src: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
-      },
-      {
-        id: 3,
-        name: "imgage",
-        src: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
-      },
-      {
-        id: 4,
-        name: "imgage",
-        src: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
-      },
-      {
-        id: 5,
-        name: "imgage",
-        src: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
-      },
-      {
-        id: 6,
-        name: "imgage",
-        src: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
-      },
-      {
-        id: 7,
-        name: "imgage",
-        src: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
-      },
-    ];
+function RecentProjects() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const itemsRef = useRef(null);
+  const [isMouseDown, setIsMouseDown] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-    const cards = [
-        {
-          url: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
-          title: "Title 1",
-          id: 1,
-        },
-        {
-          url: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
-          title: "Title 2",
-          id: 2,
-        },
-        {
-          url: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
-          title: "Title 3",
-          id: 3,
-        },
-        {
-          url: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
-          title: "Title 4",
-          id: 4,
-        },
-        {
-          url: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
-          title: "Title 5",
-          id: 5,
-        },
-        {
-          url: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
-          title: "Title 6",
-          id: 6,
-        },
-        {
-          url: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
-          title: "Title 7",
-          id: 7,
-        },
-      ];
+  useEffect(() => {
+    dispatch(getProjectsList()).then((res) => {
+      if (!res.payload) { setLoading(false); return; }
+      const repos = res.payload
+        .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
+        .slice(0, 8);
 
-// const Example = () => {
-//     return (
-//       <div className="bg-neutral-800">
-//         <div className="flex h-48 items-center justify-center">
-//           <span className="font-semibold uppercase text-neutral-500">
-//             Scroll down
-//           </span>
-//         </div>
-//         <HorizontalScrollCarousel />
-//         <div className="flex h-48 items-center justify-center">
-//           <span className="font-semibold uppercase text-neutral-500">
-//             Scroll up
-//           </span>
-//         </div>
-//       </div>
-//     );
-//   };
-  
-//   const HorizontalScrollCarousel = () => {
-//     const targetRef = useRef(null);
-//     const { scrollYProgress } = useScroll({
-//       target: targetRef,
-//     });
-  
-//     const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
-  
-//     return (
-//       <section ref={targetRef} className="relative h-[300vh] bg-neutral-900">
-//         <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-//           <motion.div style={{ x }} className="flex gap-4">
-//             {cards.map((card) => {
-//               return <Card card={card} key={card.id} />;
-//             })}
-//           </motion.div>
-//         </div>
-//       </section>
-//     );
-//   };
-  
-//   const Card = ({ card }) => {
-//     return (
-//       <div
-//         key={card.id}
-//         className="group relative h-[450px] w-[450px] overflow-hidden bg-neutral-200"
-//       >
-//         <div
-//           style={{
-//             backgroundImage: `url(${card.url})`,
-//             backgroundSize: "cover",
-//             backgroundPosition: "center",
-//           }}
-//           className="absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110"
-//         ></div>
-//         <div className="absolute inset-0 z-10 grid place-content-center">
-//           <p className="bg-gradient-to-br from-white/20 to-white/0 p-8 text-6xl font-black uppercase text-white backdrop-blur-lg">
-//             {card.title}
-//           </p>
-//         </div>
-//       </div>
-//     );
-//   };
+      let completed = 0;
+      repos.forEach((repo) => {
+        dispatch(fetchDetails(repo.name)).then((item) => {
+          let image = "";
+          if (item.payload?.Readme) {
+            try {
+              const str = item.payload.Readme.split("![")[1];
+              const matches = str.match(/\(([^)]+)\)/);
+              if (matches) image = matches[1];
+            } catch (e) {}
+          }
+          setProjects((prev) => [
+            ...prev,
+            { name: repo.name, image, description: repo.description || "" },
+          ]);
+          completed++;
+          if (completed === repos.length) setLoading(false);
+        });
+      });
+    });
+  }, [dispatch]);
 
-const itemsRef = useRef(null);
-//document içinde get element yerine kullanılabilr 
-const [isMouseDown, setisMouseDown]= useState(false);
-const [startX, setStartX]= useState(0);
-const [scrollLeft, setscrollLeft]= useState(0);
-const [walk, setwalk]= useState(0);
-
-let scrollTimeout;
-
-const slider = () => {
-
-    const handleonMouseDown=(e)=>{
-        console.log(e);
-        setisMouseDown(true)
-        setStartX(e.pageX - - itemsRef.current.offsetLeft);
-        setscrollLeft(itemsRef.current.scrollLeft-itemsRef.current.offsetLeft*2);
-        clearTimeout(scrollTimeout);
-
-    }
-    const handleonMouseLeave=()=>{
-        setisMouseDown(false)
-    }
-    const handleonMouseUp=()=>{
-        setisMouseDown(false)
-      
-    }
-    const handleonMouseMove=(e)=>{
-        if(!isMouseDown) return;
-        e.preventDefault();
-        const x = e.pageX - itemsRef.current.offsetLeft;
-        setwalk(x-startX) ;
-        itemsRef.current.scrollLeft=scrollLeft-walk;
-    }
+  const handleMouseDown = (e) => {
+    setIsMouseDown(true);
+    setStartX(e.pageX - itemsRef.current.offsetLeft);
+    setScrollLeft(itemsRef.current.scrollLeft);
+  };
+  const handleMouseUp = () => setIsMouseDown(false);
+  const handleMouseLeave = () => setIsMouseDown(false);
+  const handleMouseMove = (e) => {
+    if (!isMouseDown) return;
+    e.preventDefault();
+    const x = e.pageX - itemsRef.current.offsetLeft;
+    const walk = x - startX;
+    itemsRef.current.scrollLeft = scrollLeft - walk;
+  };
 
   return (
-    <div id="sample_item" ref={itemsRef}
-        onMouseDown={handleonMouseDown}
-        onMouseLeave={handleonMouseLeave}
-        onMouseUp={handleonMouseUp}
-        onMouseMove={handleonMouseMove}>
-      {sliderItems.map((item) => (
-        <div>
-          <div class="sample_img">
-            <img
-              src={item.src}
-              style={{ height: 300, margin: 20 }}
-              alt={item.name}
-            ></img>
+    <div>
+      <div id="RecentProjects">
+        <div className="subTitleDiv">
+          <h2>Recent Projects</h2>
+          <div className="line"></div>
+        </div>
+        <div className="recent-slider-wrapper">
+          <div
+            className="recent-slider"
+            ref={itemsRef}
+            onMouseDown={handleMouseDown}
+            onMouseLeave={handleMouseLeave}
+            onMouseUp={handleMouseUp}
+            onMouseMove={handleMouseMove}
+          >
+            {loading &&
+              Array.from({ length: 5 }).map((_, i) => (
+                <div key={i} className="recent-card">
+                  <div className="skeleton recent-card-img-skeleton"></div>
+                  <div className="skeleton" style={{ height: 16, width: '70%', marginTop: 10 }}></div>
+                </div>
+              ))}
+            {projects.map((project) => (
+              <div
+                key={project.name}
+                className="recent-card"
+                onClick={() => navigate("/Projects/" + project.name)}
+              >
+                <img
+                  src={project.image || "/images/defaultproject.jpg"}
+                  alt={project.name}
+                  className="recent-card-img"
+                />
+                <div className="recent-card-overlay">
+                  <span className="recent-card-name">{project.name}</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      ))}
-    </div>
-  );
-};
-    return (
-      <div>
-        <div id="RecentProjects">
-          <div class="subTitleDiv">
-            <h2>Recent Projects</h2>
-            <div class="line"></div>
-          </div>
-          <div class="slider"> 
-          {slider()}
-            </div>
-          <div class="d-flex justify-content-center">
-            <button id="recentButton" style={{ marginLeft: 0 }}>
-              See all project /{">"}
-            </button>
-          </div>
+        <div className="d-flex justify-content-center">
+          <button id="recentButton" onClick={() => navigate("/Projects")} style={{ marginLeft: 0 }}>
+            See all projects →
+          </button>
         </div>
       </div>
-    );
-
-
+    </div>
+  );
 }
 
 export default RecentProjects;
