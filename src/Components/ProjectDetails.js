@@ -38,11 +38,11 @@ const ProjectDetails = () => {
   return (
     
     <div className="text-white"> 
-      <div style={{fontSize:40,marginTop:20,marginBottom:20}}>
+      <div style={{fontSize:'clamp(24px, 5vw, 40px)',marginTop:20,marginBottom:20}}>
         {projectName}
       </div>
-      <div class="d-flex  justify-content-center mt-4 mb-4" style={{height:1200}}>
-      <pre class="w-75">{ReadmeContent}</pre>
+      <div className="d-flex justify-content-center mt-4 mb-4">
+      <pre style={{whiteSpace:'pre-wrap',wordBreak:'break-word',width:'min(75%, 100%)',maxWidth:'100%'}}>{ReadmeContent}</pre>
       </div>
     </div>
   );
